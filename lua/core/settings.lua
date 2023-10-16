@@ -1,5 +1,7 @@
 local options = vim.opt
 
+-- miscellaneous
+options.updatetime = 50
 options.clipboard = "unnamedplus"
 options.autochdir = true
 options.ic = true
@@ -24,3 +26,14 @@ options.backupcopy = "yes"
 options.backupdir = "/home/esskayesss/.cache/nvim/backups"
 options.undofile = true
 options.undodir = "/home/esskayesss/.cache/nvim/undo"
+
+-- searching
+options.hlsearch = false
+options.incsearch = true
+
+-- scrolling
+options.scrolloff = 8
+options.signcolumn = "yes"
+options.isfname:append("@-@")
+
+

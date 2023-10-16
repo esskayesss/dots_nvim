@@ -1,12 +1,15 @@
 local keymap = vim.keymap.set
-local opts = {noremap = true, silent = true}
-local termopts = {silent = true}
-
-
 vim.g.mapleader = " "
 
+-- lsp
+keymap("n", "<leader>f", function()
+  vim.lsp.buf.format()
+end)
+
+-- treesitter
 keymap("n", "<leader>tt",      vim.cmd.NvimTreeToggle)
 
+-- vertical split navigation
 keymap("n", "<S-Left>", "<C-w>h")
 keymap("n", "<S-Right>", "<C-w>l")
 
@@ -22,3 +25,26 @@ vim.keymap.set('n', '<leader>co', function()
   vim.api.nvim_command('edit ' .. filename)
 end)
 
+-- line movement
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '>-2<CR>gv=gv")
+
+-- sourcing current buffer
+keymap("n", "<leader><leader>", function()
+  vim.cmd("so")
+end)
+
+-- center search
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
+
+-- paste retain
+keymap("x", "<leader>p", "\"_dP")
+
+-- delete to void 
+keymap("n", "<leader>d", "\"_d")
+keymap("v", "<leader>d", "\"_d")
+
+
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
