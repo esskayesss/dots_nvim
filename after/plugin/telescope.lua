@@ -1,5 +1,9 @@
 local function is_git_repo()
   local handle = io.popen("git rev-parse --is-inside-work-tree 2> /dev/null")
+  if not handle then
+    print("couldn't execute git rev-parse")
+    return false
+  end
   local result = handle:read("*a")
   handle:close()
 

@@ -20,13 +20,12 @@ require('kanagawa').setup({
 
       -- telescope
       TelescopeTitle = { fg = theme.ui.special, bold = true },
-      TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-      TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-      TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-      TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-      TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-      TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-      
+      TelescopePromptNormal = { bg = theme.ui.bg },
+      TelescopePromptBorder = { fg = theme.ui.bg_p2, bg = theme.ui.bg },
+      TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg },
+      TelescopeResultsBorder = { fg = theme.ui.bg_p2, bg = theme.ui.bg },
+      TelescopePreviewNormal = { bg = theme.ui.bg },
+      TelescopePreviewBorder = { fg = theme.ui.bg_p2, bg = theme.ui.bg },
 
       -- popup menus
       Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1, blend = vim.o.pumblend },  -- add `blend = vim.o.pumblend` to enable transparency
