@@ -2,7 +2,7 @@ local options = vim.opt
 
 -- miscellaneous
 options.updatetime = 50
-options.clipboard = "unnamedplus"
+options.clipboard = "unnamed"
 options.autochdir = true
 options.ic = true
 options.title = true
