@@ -45,6 +45,9 @@ keymap("x", "<leader>p", "\"_dP")
 keymap("n", "<leader>d", "\"_d")
 keymap("v", "<leader>d", "\"_d")
 
+-- copy to system clipboard
+keymap({"n", "v"}, "<leader>y", [["+y]])
+keymap("n", "<leader>Y", [["+Y]])
 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
