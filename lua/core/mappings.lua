@@ -34,8 +34,8 @@ vim.keymap.set('n', '<leader>co', function()
 end)
 
 -- line movement
-keymap("v", "J", ":m '>+1<CR>gv=gv")
-keymap("v", "K", ":m '>-2<CR>gv=gv")
+keymap("v", "<C-j>", ":m '>+1<CR>gv=gv")
+keymap("v", "<C-k>", ":m -2 ^M gv<CR>gv=gv")
 
 -- sourcing current buffer
 keymap("n", "<leader><leader>", function()
