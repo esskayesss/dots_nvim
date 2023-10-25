@@ -83,6 +83,26 @@ insert_left {
 -- logo
 insert_left {
   function()
+    local os_patterns = {
+      ['windows'] = '󰍲 ',
+      ['linux'] = ' ',
+      ['mac'] = ' ',
+      ['darwin'] = ' ',
+      ['^mingw'] = '󰍲 ',
+      ['^cygwin'] = '󰍲 ',
+      ['bsd$'] = ' ',
+    }
+    if jit and jit.os then
+      local raw_os = jit.os
+      for pattern, name in pairs(os_patterns) do
+        if raw_os:match(pattern) then
+          print(raw_os)
+          return name
+        end
+      end
+    else
+      print("no jit")
+    end
     return "󰣇 "
   end,
   color = function()

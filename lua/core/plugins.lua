@@ -14,6 +14,9 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- TODO arrange and group these plugins
   use 'voldikss/vim-floaterm'
+  use 'puremourning/vimspector'
+  use 'saecki/crates.nvim'
+  use 'lvimuser/lsp-inlayhints.nvim'
 
   -- Completion framework:
   use 'hrsh7th/nvim-cmp'
@@ -31,6 +34,8 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
   use 'simrat39/rust-tools.nvim'
+  use 'RRethy/vim-illuminate'
+  use 'mfussenegger/nvim-dap'
   use 'simrat39/symbols-outline.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use {
@@ -107,6 +112,7 @@ return require('packer').startup(function(use)
   }
 
   use 'airblade/vim-gitgutter'
+  use 'wfxr/minimap.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

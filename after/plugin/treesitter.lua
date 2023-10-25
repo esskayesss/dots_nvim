@@ -1,8 +1,8 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "bash", "cmake", "cpp", "git_config", "git_rebase", "go", "gomod", "gosum", "html", "htmldjango", "javascript", "json", "java", "latex", "markdown_inline", "perl", "python", "r", "toml", "tsx", "vue", "xml", "yaml" },
+  ensure_installed = { "c", "toml", "lua", "vim", "vimdoc", "query", "rust", "bash", "cmake", "cpp", "git_config", "git_rebase", "go", "gomod", "gosum", "html", "htmldjango", "javascript", "json", "java", "latex", "markdown_inline", "perl", "python", "r", "toml", "tsx", "vue", "xml", "yaml" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = true,
 
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
@@ -12,4 +12,10 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  ident = { enable = true },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
 }

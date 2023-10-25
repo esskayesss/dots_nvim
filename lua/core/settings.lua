@@ -2,7 +2,7 @@ local options = vim.opt
 local homedir = require("os").getenv("HOME")
 
 -- miscellaneous
-options.updatetime = 50
+options.updatetime = 250
 options.clipboard = "unnamed"
 options.autochdir = true
 options.ic = true

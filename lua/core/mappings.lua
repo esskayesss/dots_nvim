@@ -15,6 +15,12 @@ keymap("n", "<S-Right>", "<C-w>l")
 keymap("n", "<S-Down>", "<C-w>j")
 keymap("n", "<S-Up>", "<C-w>k")
 
+-- tabs navigation
+keymap("n", "<leader>tn", ":tabnext<CR>")
+keymap("n", "<leader>tp", ":tabprev<CR>")
+keymap("n", "<leader>tx", ":tabclose<CR>")
+keymap("n", "<leader>nt", ":tabnew<CR>")
+
 -- split resizing
 keymap("n", "<C-Up>", ":resize +2<CR>")
 keymap("n", "<C-Down>", ":resize -2<CR>")

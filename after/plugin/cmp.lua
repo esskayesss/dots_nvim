@@ -1,9 +1,7 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
--- Completion Plugin Setup
 cmp.setup({
-  -- Enable LSP snippets
   snippet = {
     expand = function(args)
         vim.fn["vsnip#anonymous"](args.body)
