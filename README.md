@@ -15,7 +15,7 @@
   <p>
     My config uses the <a href="https://github.com/rebelot/kanagawa.nvim">kanagawa</a> theme. It's one of the most perfect colorschemes I've come across of late.
     I was enjoying how pleasant Gruvbox was to the eye and yet wanted something darker. I will be using a darker configuration of it extensively throughout my rice, all of which can be 
-    found in the <a href="https://github.com/esskayesss/dots"> <code>dots</code> </a> repository. It's great that the author has publicized the palette.
+    found in the <a href="https://github.com/esskayesss/dots"> <code>dots</code></a> repository. It's great that the author has publicized the palette.
   </p>
 </div>
 
