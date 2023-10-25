@@ -12,6 +12,8 @@ keymap("n", "<leader>tt",      vim.cmd.NvimTreeToggle)
 -- vertical split navigation
 keymap("n", "<S-Left>", "<C-w>h")
 keymap("n", "<S-Right>", "<C-w>l")
+keymap("n", "<S-Down>", "<C-w>j")
+keymap("n", "<S-Up>", "<C-w>k")
 
 -- split resizing
 keymap("n", "<C-Up>", ":resize +2<CR>")

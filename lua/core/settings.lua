@@ -1,4 +1,5 @@
 local options = vim.opt
+local homedir = require("os").getenv("HOME")
 
 -- miscellaneous
 options.updatetime = 50
@@ -23,9 +24,9 @@ options.rnu = true
 -- file backups and undo
 options.backup = true
 options.backupcopy = "yes"
-options.backupdir = "/home/esskayesss/.cache/nvim/backups"
+options.backupdir = homedir .. "/.cache/nvim/backups"
 options.undofile = true
-options.undodir = "/home/esskayesss/.cache/nvim/undo"
+options.undodir = homedir .. "/.cache/nvim/undo"
 
 -- searching
 options.hlsearch = false
