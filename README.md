@@ -74,4 +74,4 @@ My config uses [packer](https://github.com/wbthomason/packer.nvim) to manage its
 ## contributing
 
 Now, this is a personal config, mostly with things that seem to work best for me. However, the repo is always open to good suggestions. 
-Feel free to fork it and customize it to your own liking, and creating PRs with improvements.
+Feel free to fork it and customize it to your own liking, or to create PRs with improvements.
