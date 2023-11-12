@@ -46,9 +46,6 @@ end)
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
--- paste retain
-keymap("x", "<leader>p", "\"_dP")
-
 -- delete to void 
 keymap("n", "<leader>d", "\"_d")
 keymap("v", "<leader>d", "\"_d")
