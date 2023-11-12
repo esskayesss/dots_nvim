@@ -63,6 +63,25 @@ local cfg = {
   }
 }
 
+local function get_os_logo()
+  local os_patterns = {
+    ['windows'] = '󰍲 ',
+    ['linux'] = ' ',
+    ['mac'] = ' ',
+    ['darwin'] = ' ',
+    ['^mingw'] = '󰍲 ',
+    ['^cygwin'] = '󰍲 ',
+    ['bsd$'] = ' ',
+  }
+  local sysname = string.lower(vim.loop.os_uname().sysname)
+  for pattern, logo in pairs(os_patterns) do
+    if string.match(sysname, pattern) then
+      return logo
+    end
+  end
+  return " "
+end
+
 local function insert_left(component)
   table.insert(cfg.sections.lualine_c, component)
 end
@@ -83,27 +102,7 @@ insert_left {
 -- logo
 insert_left {
   function()
-    local os_patterns = {
-      ['windows'] = '󰍲 ',
-      ['linux'] = ' ',
-      ['mac'] = ' ',
-      ['darwin'] = ' ',
-      ['^mingw'] = '󰍲 ',
-      ['^cygwin'] = '󰍲 ',
-      ['bsd$'] = ' ',
-    }
-    if jit and jit.os then
-      local raw_os = jit.os
-      for pattern, name in pairs(os_patterns) do
-        if raw_os:match(pattern) then
-          print(raw_os)
-          return name
-        end
-      end
-    else
-      print("no jit")
-    end
-    return "󰣇 "
+    return get_os_logo()
   end,
   color = function()
     local mode_color = {
