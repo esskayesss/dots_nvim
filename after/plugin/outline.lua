@@ -62,6 +62,6 @@ local opts = {
   },
 }
 
-require('symbols-outline').setup(opts)
+require('outline').setup(opts)
 
 vim.keymap.set("n", "<leader>so", vim.cmd.SymbolsOutline)

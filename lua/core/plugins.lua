@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use 'simrat39/rust-tools.nvim'
   use 'RRethy/vim-illuminate'
   use 'mfussenegger/nvim-dap'
-  use 'simrat39/symbols-outline.nvim'
+  use "hedyhli/outline.nvim"
   use 'lukas-reineke/indent-blankline.nvim'
   use {
     "windwp/nvim-autopairs",

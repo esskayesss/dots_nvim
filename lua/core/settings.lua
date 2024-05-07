@@ -3,7 +3,7 @@ local homedir = require("os").getenv("HOME")
 
 -- miscellaneous
 options.updatetime = 250
-options.clipboard = "unnamed"
+-- options.clipboard = "unnamedplus"
 options.autochdir = true
 options.ic = true
 options.title = true
