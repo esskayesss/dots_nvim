@@ -59,3 +59,6 @@ keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- toggles hidden characters
 keymap("n", "<leader>l", ":set list!<CR>")
+
+-- toggles outline
+keymap("n", "<leader>o", "<cmd>Outline<CR>")
