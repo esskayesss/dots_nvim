@@ -10,7 +10,7 @@ options.title = true
 options.termguicolors = true
 
 -- editor options
-options.list = true
+options.list = false
 options.listchars = "eol:↲,tab:→\\ ,trail:•,extends:>,precedes:<"
 options.wrap = true
 options.expandtab = true
