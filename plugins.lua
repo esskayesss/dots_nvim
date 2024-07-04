@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
 
   use 'wbthomason/packer.nvim'
-  use 'mrcjkb/rustaceanvim'
   use 'RRethy/vim-illuminate'
   use 'mfussenegger/nvim-dap'
   use "hedyhli/outline.nvim"
