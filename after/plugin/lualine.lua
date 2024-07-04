@@ -3,15 +3,15 @@
 local lualine = require('lualine')
 
 local colors = {
-  bg      = "#1F1F28",
-  fg      = "#DCD7BA",
-  green   = "#76946A",
-  yellow  = "#DCA561",
-  blue    = "#7E9CD8",
-  blue_d  = "#223249",
-  red     = "#C34043",
-  aqua    = "#6A9589",
-  yellow_d = "#FF9E3B"
+  bg      = "#0D0F18",
+  fg      = "#BDBFCB",
+  green   = "#7DC893",
+  yellow  = "#D0AD7D",
+  yellow_d = "#D18926",
+  blue    = "#94D6D8",
+  blue_d  = "#217182",
+  red     = "#D07676",
+  aqua    = "#99FAFF",
 }
 
 local checks = {
@@ -29,7 +29,6 @@ local checks = {
 
     return result:match("true") ~= nil
   end,
-
 }
 
 
