@@ -13,11 +13,12 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   -- TODO arrange and group these plugins
-  use 'ap/vim-css-color'
+  use 'norcalli/nvim-colorizer.lua'
   use 'voldikss/vim-floaterm'
   use 'puremourning/vimspector'
   use 'saecki/crates.nvim'
   use 'lvimuser/lsp-inlayhints.nvim'
+  use 'junegunn/fzf.vim'
 
   -- Completion framework:
   use 'hrsh7th/nvim-cmp'
@@ -56,7 +57,8 @@ return require('packer').startup(function(use)
     'folke/trouble.nvim',
     require = {
       'nvim-tree/nvim-web-devicons'
-    }
+    },
+    cmd = 'Trouble'
   }
 
   use {
@@ -79,7 +81,7 @@ return require('packer').startup(function(use)
   )
 
   use 'rebelot/kanagawa.nvim'
-  use 'theprimeagen/harpoon'
+  use { 'otavioschwanck/arrow.nvim'}
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
