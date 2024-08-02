@@ -13,6 +13,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   -- TODO arrange and group these plugins
+  use 'airblade/vim-rooter'
   use 'norcalli/nvim-colorizer.lua'
   use 'voldikss/vim-floaterm'
   use 'puremourning/vimspector'
@@ -35,7 +36,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
 
   use 'wbthomason/packer.nvim'
-  use 'mrcjkb/rustaceanvim'
   use 'RRethy/vim-illuminate'
   use 'mfussenegger/nvim-dap'
   use "hedyhli/outline.nvim"
@@ -61,9 +61,10 @@ return require('packer').startup(function(use)
     cmd = 'Trouble'
   }
 
-  use {
-    'nvim-lualine/lualine.nvim',
-  }
+  use 'nvim-lualine/lualine.nvim'
+  use 'maxmellon/vim-jsx-pretty'
+  use 'yuezk/vim-js'
+  use 'HerringtonDarkholme/yats.vim'
 
   use {
     "nvim-telescope/telescope-file-browser.nvim",

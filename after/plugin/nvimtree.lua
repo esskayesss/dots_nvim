@@ -1,12 +1,8 @@
 require("nvim-tree").setup({
-  sort_by = "case_sensitive",
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
+  respect_buf_cwd = false,
+  actions = {
+    change_dir = {
+      enable = false,
+    },
   },
 })

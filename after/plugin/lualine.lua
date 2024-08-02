@@ -1,5 +1,6 @@
 -- inspired by https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua 
 
+local arrow_sl = require('arrow.statusline')
 local lualine = require('lualine')
 
 local colors = {
@@ -105,7 +106,7 @@ insert_left {
   end,
   color = function()
     local mode_color = {
-      n = colors.blue,
+      n = colors.fg,
       i = colors.green,
       v = colors.yellow,
       [' '] = colors.blue,
@@ -116,6 +117,14 @@ insert_left {
   end
 }
 
+
+insert_left {
+  function()
+    return arrow_sl.text_for_statusline_with_icons()
+  end,
+  cond = arrow_sl.is_on_arrow_file(),
+  color = { fg = colors.fg }
+}
 
 insert_left {
   'filename',
