@@ -8,6 +8,7 @@ options.autochdir = true
 options.ic = true
 options.title = true
 options.termguicolors = true
+options.cursorline = true
 
 -- editor options
 options.list = false

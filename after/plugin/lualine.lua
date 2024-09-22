@@ -1,19 +1,8 @@
--- inspired by https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua 
+-- inspired by https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua
 
 local arrow_sl = require('arrow.statusline')
 local lualine = require('lualine')
-
-local colors = {
-  bg      = "#0D0F18",
-  fg      = "#BDBFCB",
-  green   = "#7DC893",
-  yellow  = "#D0AD7D",
-  yellow_d = "#D18926",
-  blue    = "#94D6D8",
-  blue_d  = "#217182",
-  red     = "#D07676",
-  aqua    = "#99FAFF",
-}
+local palette = require("yorumi.colors")
 
 local checks = {
   empty_buffer = function()
@@ -33,15 +22,15 @@ local checks = {
 }
 
 
--- config here 
+-- config here
 local cfg = {
   options = {
     component_separators = '',
     section_separators = '',
 
     theme = {
-      normal = { c = { fg = colors.fg, bg = colors.bg }},
-      inactive = { c = { fg = colors.fg, bg = colors.bg }},
+      normal = { c = { fg = palette.tsuki3, bg = palette.yoru1 } },
+      inactive = { c = { fg = palette.tsuki1, bg = palette.yoru0 } },
     },
   },
 
@@ -95,7 +84,7 @@ insert_left {
   function()
     return '▉'
   end,
-  color = { fg = colors.fg}, -- Sets highlighting of component
+  color = { fg = palette.tsuki4 },   -- Sets highlighting of component
   padding = { left = 0, right = 0 }, -- We don't need space before this
 }
 
@@ -106,12 +95,12 @@ insert_left {
   end,
   color = function()
     local mode_color = {
-      n = colors.fg,
-      i = colors.green,
-      v = colors.yellow,
-      [' '] = colors.blue,
-      V = colors.yellow,
-      c = colors.aqua,
+      n = palette.tsuki2,
+      i = palette.sangoGreen,
+      v = palette.sangoYellow,
+      [' '] = palette.sangoBlue,
+      V = palette.kairoYellow,
+      c = palette.sangoCyan,
     }
     return { fg = mode_color[vim.fn.mode()] }
   end
@@ -123,13 +112,13 @@ insert_left {
     return arrow_sl.text_for_statusline_with_icons()
   end,
   cond = arrow_sl.is_on_arrow_file(),
-  color = { fg = colors.fg }
+  color = { fg = palette.tsuki3 }
 }
 
 insert_left {
   'filename',
   cond = checks.empty_buffer,
-  color = { fg = colors.aqua, gui = 'bold'}
+  color = { fg = palette.sangoCyan, gui = 'bold' }
 }
 
 insert_left {
@@ -143,7 +132,7 @@ insert_left {
 
 insert_left {
   'progress',
-  color = { fg = colors.fg, gui = 'bold' }
+  color = { fg = palette.sangoBlue, gui = 'bold' }
 }
 
 insert_left {
@@ -151,16 +140,16 @@ insert_left {
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
   diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.aqua },
+    color_error = { fg = palette.sangoRed },
+    color_warn  = { fg = palette.sangoYellow },
+    color_info  = { fg = palette.sangoCyan },
   },
 }
 
 insert_right {
   'branch',
   icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { fg = palette.sangoViolet, gui = 'bold' },
 }
 
 insert_right {
@@ -168,22 +157,22 @@ insert_right {
   -- Is it me or the symbol for modified us really weird
   symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
+    added    = { fg = palette.kairoGreen },
+    modified = { fg = palette.kairoYellow },
+    removed  = { fg = palette.kairoRed },
   },
 }
 
 insert_right {
   'filetype',
-  color = { bg = colors.blue_d }
+  color = { bg = palette.kuroiBlue }
 }
 
 insert_right {
   function()
     local msg = 'No Active Lsp'
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
+    local buf_ft = vim.bo.filetype
+    local clients = vim.lsp.get_clients()
     if next(clients) == nil then
       return msg
     end
@@ -196,7 +185,7 @@ insert_right {
     return msg
   end,
   icon = ' ',
-  color = { fg = colors.fg, bg = "#252535", gui = 'bold' },
+  color = { fg = palette.tsuki4, bg = palette.yoru3, gui = 'bold' },
 }
 
 lualine.setup(cfg)

@@ -26,7 +26,6 @@ require("mason").setup({
 })
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -37,8 +36,8 @@ require('mason-lspconfig').setup({
 })
 
 lsp_zero.set_sign_icons({
-  error = " ",
-  warn = " ",
-  hint = " ",
-  info = " "
+  error = " ",
+  warn = " ",
+  hint = " ",
+  info = " "
 })

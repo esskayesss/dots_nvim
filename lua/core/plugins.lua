@@ -82,10 +82,9 @@ return require('packer').startup(function(use)
     { run = ':TSUpdate'}
   )
 
-  use 'rebelot/kanagawa.nvim'
+  use 'yorumicolors/yorumi.nvim'
   use { 'otavioschwanck/arrow.nvim'}
   use 'mbbill/undotree'
-  use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
   use {
@@ -116,8 +115,8 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons'}
   }
 
-  use 'airblade/vim-gitgutter'
-  use 'wfxr/minimap.vim'
+  use 'lewis6991/gitsigns.nvim'
+  use 'petertriho/nvim-scrollbar'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
