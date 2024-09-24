@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img src="res/version1.x_1.png">
+  <img src="res/version2.x_1.png">
   <br>
   <i>colorscheme: kanagawa • terminal: kitty • tmux</i>
 </p>
