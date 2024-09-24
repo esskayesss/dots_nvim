@@ -5,15 +5,15 @@
 <p align="center">
   <img src="res/version2.x_1.png">
   <br>
-  <i>colorscheme: kanagawa • terminal: kitty • tmux</i>
+  <i>colorscheme: <a href="https://github.com/yorumicolors/yorumi.nvim">yorumi</a> • terminal: iterm2 • tmux</i>
 </p>
 
 ## colorscheme
 
 <div>
-  <img src="https://github.com/rebelot/kanagawa.nvim/blob/master/kanagawa@2x.png" align="right" width="125px">
+  <img src="https://github.com/yorumicolors/.github/blob/main/res/seal_sots.gif?raw=true" align="right" width="125px">
   <p>
-    My config uses the <a href="https://github.com/rebelot/kanagawa.nvim">kanagawa</a> theme. It's one of the most perfect colorschemes I've come across of late.
+    My config uses the  <a href="https://github.com/yorumicolors/yorumi.nvim">yorumi</a> theme. It's one of the most perfect colorschemes I've come across of late.
     I was enjoying how pleasant Gruvbox was to the eye and yet wanted something darker. I will be using a darker configuration of it extensively throughout my rice, all of which can be 
     found in the <a href="https://github.com/esskayesss/dots"> <code>dots</code></a> repository. It's great that the author has publicized the palette.
   </p>
@@ -25,7 +25,7 @@ My config uses [packer](https://github.com/wbthomason/packer.nvim) to manage its
 
 ### statusline and colorscheme
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - A customizable statusline.
-- [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim) - A stylish colorscheme.
+- [yorumi.nvim](https://github.com/yorumicolors/yorumi.nvim) - A calming deep sea colorscheme.
 
 ### utilities
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) - A highly extendable fuzzy finder.
