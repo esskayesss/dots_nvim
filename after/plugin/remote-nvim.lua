@@ -1,0 +1,1 @@
+require("remote-nvim").setup()

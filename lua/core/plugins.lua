@@ -13,6 +13,14 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   -- TODO arrange and group these plugins
+  use({
+    'amitds1997/remote-nvim.nvim',
+    requires = {
+      "nvim-lua/plenary.nvim", -- For standard functions
+      "MunifTanjim/nui.nvim", -- To build the plugin UI
+      "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+    },
+  })
   use 'airblade/vim-rooter'
   use 'norcalli/nvim-colorizer.lua'
   use 'voldikss/vim-floaterm'
