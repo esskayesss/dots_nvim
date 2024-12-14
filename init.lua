@@ -33,3 +33,9 @@ end
 
 local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
 vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
+
+-- Neovide settings
+if vim.g.neovide then
+  vim.o.guifont = "GeistMono Nerd Font Mono:h12"
+  vim.g.neovide_fullscreen = true
+end

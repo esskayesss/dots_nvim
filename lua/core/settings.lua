@@ -1,5 +1,5 @@
 local options = vim.opt
-local homedir = require("os").getenv("HOME")
+local homedir = require("os").getenv("HOME") or require("os").getenv("USERPROFILE")
 
 -- miscellaneous
 options.updatetime = 250
