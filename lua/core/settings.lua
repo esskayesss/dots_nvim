@@ -41,3 +41,4 @@ options.signcolumn = "yes"
 options.isfname:append("@-@")
 
 
+additional_vim_regex_highlighting = true

@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
   use 'saecki/crates.nvim'
   use 'lvimuser/lsp-inlayhints.nvim'
   use 'junegunn/fzf.vim'
+  use 'yuezk/vim-js'
+  use 'maxmellon/vim-jsx-pretty'
 
   -- Completion framework:
   use 'hrsh7th/nvim-cmp'
@@ -38,10 +40,10 @@ return require('packer').startup(function(use)
   -- Useful completion sources:
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/vim-vsnip'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   use 'wbthomason/packer.nvim'
   use 'RRethy/vim-illuminate'
@@ -60,6 +62,12 @@ return require('packer').startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
     },
+  })
+
+  use ({
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { }
   })
 
   use {
@@ -90,7 +98,10 @@ return require('packer').startup(function(use)
     { run = ':TSUpdate'}
   )
 
-  use 'yorumicolors/yorumi.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'MunifTanjim/prettier.nvim'
+  use { 'yorumicolors/yorumi.nvim', branch = 'dev' }
   use { 'otavioschwanck/arrow.nvim'}
   use 'mbbill/undotree'
   use 'tpope/vim-commentary'

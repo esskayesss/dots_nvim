@@ -1,4 +1,8 @@
 local lsp_zero = require('lsp-zero')
+local lspconfig = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 
 lsp_zero.on_attach(function(_, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -33,6 +37,25 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
+})
+
+lspconfig.emmet_ls.setup({
+    -- on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
+
+lspconfig.htmx.setup({
+    filetypes = { "html", "htm" }, -- Only apply to HTML files
 })
 
 lsp_zero.set_sign_icons({

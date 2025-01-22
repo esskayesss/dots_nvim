@@ -1,10 +1,18 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
+
+luasnip.filetype_extend('javascriptreact', { 'html' })
+luasnip.filetype_extend('typescriptreact', { 'html' })
+luasnip.filetype_extend('typescript', { 'tsdoc' })
+luasnip.filetype_extend('javascript', { 'jsdoc' })
+luasnip.filetype_extend('typescript', { 'javascript' })
+luasnip.filetype_extend('typescriptreact', { 'javascript', 'typescript' })
 
 cmp.setup({
   snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+      require('luasnip').lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -24,13 +32,13 @@ cmp.setup({
   },
   -- Installed sources:
   sources = {
-    { name = 'path' },                              -- file paths
-    { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
-    { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
-    { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
-    { name = 'buffer', keyword_length = 2 },        -- source current buffer
-    { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-    { name = 'calc'},                               -- source for math calculation
+    { name = 'path' },          -- file paths
+    { name = 'nvim_lsp' },      -- from language server
+    { name = 'nvim_lsp_signature_help'},      -- display function signatures with current parameter emphasized
+    { name = 'nvim_lua' },      -- complete neovim's Lua runtime API such vim.lsp.*
+    { name = 'buffer' },        -- source current buffer
+    { name = 'luasnip' },       -- nvim-cmp source for vim-vsnip 
+    { name = 'calc'},           -- source for math calculation
   },
   window = {
       completion = cmp.config.window.bordered(),

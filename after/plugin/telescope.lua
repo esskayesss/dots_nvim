@@ -29,9 +29,10 @@ vim.keymap.set('n', '<leader>gf', function()
 end)
 
 
-
 require("telescope").load_extension "file_browser"
 vim.keymap.set('n', '<leader>tf', ':Telescope file_browser<CR>')
+
+require("telescope").load_extension "todo-comments"
 
 local fb_actions = require("telescope._extensions.file_browser.actions")
 vim.keymap.set('n', '<leader>co', function()
