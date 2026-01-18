@@ -1,2 +1,1 @@
-vim.cmd("colorscheme yorumi")
-
+require("yorumi").load "abyss"

@@ -79,18 +79,11 @@ return require('packer').startup(function(use)
   }
 
   use 'nvim-lualine/lualine.nvim'
-  use 'maxmellon/vim-jsx-pretty'
-  use 'yuezk/vim-js'
   use 'HerringtonDarkholme/yats.vim'
 
   use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim'}
   }
 
   use (

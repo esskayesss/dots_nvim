@@ -1,5 +1,4 @@
 local cmp = require('cmp')
-local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
 luasnip.filetype_extend('javascriptreact', { 'html' })
@@ -14,6 +13,14 @@ cmp.setup({
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
     end,
+  },
+  window = {
+    completion = vim.tbl_extend("force", cmp.config.window.bordered(), {
+      winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpCursorLine,Search:None"
+    }),
+    documentation = vim.tbl_extend("force", cmp.config.window.bordered(), {
+      winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpCursorLine,Search:None"
+    }),
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -40,49 +47,39 @@ cmp.setup({
     { name = 'luasnip' },       -- nvim-cmp source for vim-vsnip 
     { name = 'calc'},           -- source for math calculation
   },
-  window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-  },
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol_text',
-      maxwidth = 50,
-      ellipsis_char = '...',
-      preset = 'codicons',
-
-      require('lspkind').init({
-        mode = 'symbol_text',
-        preset = 'codicons',
-
-        symbol_map = {
-          Text = "󰉿 ",
-          Method = "󰆧 ",
-          Function = "󰊕 ",
-          Constructor = " ",
-          Field = "󰜢 ",
-          Variable = "󰀫 ",
-          Class = "󰠱 ",
-          Interface = " ",
-          Module = " ",
-          Property = "󰜢 ",
-          Unit = "󰑭 ",
-          Value = "󰎠 ",
-          Enum = " ",
-          Keyword = "󰌋 ",
-          Snippet = " ",
-          Color = "󰏘 ",
-          File = "󰈙 ",
-          Reference = "󰈇 ",
-          Folder = "󰉋 ",
-          EnumMember = " ",
-          Constant = "󰏿 ",
-          Struct = "󰙅 ",
-          Event = "",
-          Operator = "󰆕 ",
-          TypeParameter = "",
-        },
-      }),
-    })
-  },
+--   formatting = {
+--     format = lspkind.cmp_format({
+--       mode = 'symbol_text',
+--       maxwidth = 50,
+--       ellipsis_char = '...',
+--       preset = 'codicons',
+--       -- symbol_map = {
+--       --   Text = "󰉿 ",
+--       --   Method = "󰆧 ",
+--       --   Function = "󰊕 ",
+--       --   Constructor = " ",
+--       --   Field = "󰜢 ",
+--       --   Variable = "󰀫 ",
+--       --   Class = "󰠱 ",
+--       --   Interface = " ",
+--       --   Module = " ",
+--       --   Property = "󰜢 ",
+--       --   Unit = "󰑭 ",
+--       --   Value = "󰎠 ",
+--       --   Enum = " ",
+--       --   Keyword = "󰌋 ",
+--       --   Snippet = " ",
+--       --   Color = "󰏘 ",
+--       --   File = "󰈙 ",
+--       --   Reference = "󰈇 ",
+--       --   Folder = "󰉋 ",
+--       --   EnumMember = " ",
+--       --   Constant = "󰏿 ",
+--       --   Struct = "󰙅 ",
+--       --   Event = "",
+--       --   Operator = "󰆕 ",
+--       --   TypeParameter = "",
+--       -- },
+--     })
+--   },
 })

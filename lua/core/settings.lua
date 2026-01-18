@@ -1,5 +1,5 @@
 local options = vim.opt
-local homedir = require("os").getenv("HOME") or require("os").getenv("USERPROFILE")
+local homedir = os.getenv("HOME") or os.getenv("USERPROFILE")
 
 -- miscellaneous
 options.updatetime = 250
@@ -40,5 +40,3 @@ options.scrolloff = 8
 options.signcolumn = "yes"
 options.isfname:append("@-@")
 
-
-additional_vim_regex_highlighting = true

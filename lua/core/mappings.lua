@@ -7,7 +7,7 @@ keymap("n", "<leader>f", function()
 end)
 
 -- treesitter
-keymap("n", "<leader>tt",      vim.cmd.NvimTreeToggle)
+keymap("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>")
 
 -- vertical split navigation
 keymap("n", "<S-Left>", "<C-w>h")
