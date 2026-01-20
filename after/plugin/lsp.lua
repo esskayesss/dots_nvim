@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+local lspconfig = vim.lsp.config
 lsp_zero.skip_setup = {'cmp'}
 
 -- Keep your custom capabilities if you still need them (e.g. for snippets)
@@ -42,5 +43,33 @@ require('mason-lspconfig').setup({
       local lua_opts = lsp_zero.nvim_lua_ls()
       vim.lsp.config('lua_ls', lua_opts)
     end,
-  },
+  }
+})
+
+
+lspconfig('emmet_ls', {
+    -- on_attach = on_attach,  -- Uncomment if you have a custom on_attach defined
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
+lspconfig('htmx', {
+    filetypes = { "html", "htm" }, -- Only apply to HTML files
+})
+
+lspconfig('gdscript', capabilities)
+
+lsp_zero.set_sign_icons({
+  error = " ",
+  warn = " ",
+  hint = " ",
+  info = " "
 })

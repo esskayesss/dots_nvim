@@ -9,12 +9,6 @@ end)
 -- treesitter
 keymap("n", "<leader>tt", "<cmd>NvimTreeToggle<CR>")
 
--- vertical split navigation
-keymap("n", "<S-Left>", "<C-w>h")
-keymap("n", "<S-Right>", "<C-w>l")
-keymap("n", "<S-Down>", "<C-w>j")
-keymap("n", "<S-Up>", "<C-w>k")
-
 -- tabs navigation
 keymap("n", "<leader>tn", ":tabnext<CR>")
 keymap("n", "<leader>tp", ":tabprev<CR>")
@@ -22,10 +16,10 @@ keymap("n", "<leader>tx", ":tabclose<CR>")
 keymap("n", "<leader>nt", ":tabnew<CR>")
 
 -- split resizing
-keymap("n", "<C-Up>", ":resize +2<CR>")
-keymap("n", "<C-Down>", ":resize -2<CR>")
-keymap("n", "<C-Left>", ":vertical resize -2<CR>")
-keymap("n", "<C-Right>", ":vertical resize +2<CR>")
+keymap("n", "<S-Up>", ":resize +2<CR>")
+keymap("n", "<S-Down>", ":resize -2<CR>")
+keymap("n", "<S-Left>", ":vertical resize -2<CR>")
+keymap("n", "<S-Right>", ":vertical resize +2<CR>")
 
 -- create and open a file
 vim.keymap.set('n', '<leader>co', function()
@@ -55,7 +49,7 @@ keymap({"n", "v"}, "<leader>y", [["+y]])
 keymap("n", "<leader>Y", [["+Y]])
 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- toggles hidden characters
 keymap("n", "<leader>l", ":set list!<CR>")

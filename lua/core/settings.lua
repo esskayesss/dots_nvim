@@ -39,4 +39,3 @@ options.incsearch = true
 options.scrolloff = 8
 options.signcolumn = "yes"
 options.isfname:append("@-@")
-

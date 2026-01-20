@@ -13,6 +13,30 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   -- TODO arrange and group these plugins
+
+  use 'stevearc/dressing.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'MunifTanjim/nui.nvim'
+  use 'MeanderingProgrammer/render-markdown.nvim'
+  use 'HakonHarnes/img-clip.nvim'
+  use 'windwp/nvim-ts-autotag'
+
+  -- Avante.nvim with build process
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    config = function()
+      require('avante').setup()
+    end
+  }
+
+  use {
+    "nvzone/typr",
+    requires = {"nvzone/volt"},
+    cmd = { "Typr", "TyprStats" },
+  }
+
   use({
     'amitds1997/remote-nvim.nvim',
     requires = {
@@ -28,7 +52,6 @@ return require('packer').startup(function(use)
   use 'saecki/crates.nvim'
   use 'lvimuser/lsp-inlayhints.nvim'
   use 'junegunn/fzf.vim'
-  use 'yuezk/vim-js'
   use 'maxmellon/vim-jsx-pretty'
 
   -- Completion framework:
@@ -75,10 +98,14 @@ return require('packer').startup(function(use)
     require = {
       'nvim-tree/nvim-web-devicons'
     },
-    cmd = 'Trouble'
+    cmd = 'Trouble',
+    config = function()
+      require('trouble').setup()
+    end
   }
 
   use 'nvim-lualine/lualine.nvim'
+  use 'yuezk/vim-js'
   use 'HerringtonDarkholme/yats.vim'
 
   use {

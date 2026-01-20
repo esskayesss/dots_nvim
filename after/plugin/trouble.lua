@@ -1,6 +1,8 @@
-vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle("diagnostics") end)
-vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<CR>', vim.tbl_extend('force', opts, { desc = 'Diagnostics (Trouble)' }))
+keymap('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<CR>', vim.tbl_extend('force', opts, { desc = 'Buffer Diagnostics (Trouble)' }))
+keymap('n', '<leader>cs', '<cmd>Trouble symbols toggle focus=false<CR>', vim.tbl_extend('force', opts, { desc = 'Symbols (Trouble)' }))
+keymap('n', '<leader>cl', '<cmd>Trouble lsp toggle focus=false win.position=right<CR>', vim.tbl_extend('force', opts, { desc = 'LSP Definitions / references / ... (Trouble)' }))
+keymap('n', '<leader>xL', '<cmd>Trouble loclist toggle<CR>', vim.tbl_extend('force', opts, { desc = 'Location List (Trouble)' }))
+keymap('n', '<leader>xQ', '<cmd>Trouble qflist toggle<CR>', vim.tbl_extend('force', opts, { desc = 'Quickfix List (Trouble)' }))

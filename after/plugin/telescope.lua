@@ -1,3 +1,9 @@
+require('telescope').setup{
+  defaults = {
+    file_ignore_patterns = { "node_modules", "vendor", "bin", "obj" }
+  }
+}
+
 local function is_git_repo()
   local handle = io.popen("git rev-parse --is-inside-work-tree 2> /dev/null")
   if not handle then
