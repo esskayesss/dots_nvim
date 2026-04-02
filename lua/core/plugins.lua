@@ -12,90 +12,113 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-  -- TODO arrange and group these plugins
+  use 'wbthomason/packer.nvim'
 
-  use 'stevearc/dressing.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'MunifTanjim/nui.nvim'
-  use 'MeanderingProgrammer/render-markdown.nvim'
-  use 'HakonHarnes/img-clip.nvim'
-  use 'windwp/nvim-ts-autotag'
+  use 'stevearc/dressing.nvim'
 
-  -- Avante.nvim with build process
   use {
     'yetone/avante.nvim',
     branch = 'main',
     run = 'make',
-    config = function()
-      require('avante').setup()
-    end
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'MeanderingProgrammer/render-markdown.nvim',
+    },
   }
+  use 'MeanderingProgrammer/render-markdown.nvim'
+  use 'HakonHarnes/img-clip.nvim'
+  use { 'nickjvandyke/opencode.nvim' }
+  use { 'folke/snacks.nvim' }
+  use 'milanglacier/minuet-ai.nvim'
 
   use {
-    "nvzone/typr",
-    requires = {"nvzone/volt"},
-    cmd = { "Typr", "TyprStats" },
-  }
-
-  use({
-    'amitds1997/remote-nvim.nvim',
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
     requires = {
-      "nvim-lua/plenary.nvim", -- For standard functions
-      "MunifTanjim/nui.nvim", -- To build the plugin UI
-      "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
-    },
-  })
-  use 'airblade/vim-rooter'
-  use 'norcalli/nvim-colorizer.lua'
-  use 'voldikss/vim-floaterm'
-  use 'puremourning/vimspector'
-  use 'saecki/crates.nvim'
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
+    }
+  }
+  use 'neovim/nvim-lspconfig'
+  use 'nvimtools/none-ls.nvim'
   use 'lvimuser/lsp-inlayhints.nvim'
-  use 'junegunn/fzf.vim'
-  use 'maxmellon/vim-jsx-pretty'
+  use 'RRethy/vim-illuminate'
 
-  -- Completion framework:
   use 'hrsh7th/nvim-cmp'
-
-  -- LSP completion source:
   use 'hrsh7th/cmp-nvim-lsp'
-
-  -- Useful completion sources:
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-buffer'
+  use 'onsails/lspkind.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  use 'wbthomason/packer.nvim'
-  use 'RRethy/vim-illuminate'
-  use 'mfussenegger/nvim-dap'
-  use "hedyhli/outline.nvim"
-  use 'lukas-reineke/indent-blankline.nvim'
   use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
   }
-  use "machakann/vim-sandwich"
-  use 'onsails/lspkind.nvim'
+  use 'windwp/nvim-ts-autotag'
+  use 'maxmellon/vim-jsx-pretty'
+  use 'yuezk/vim-js'
+  use 'HerringtonDarkholme/yats.vim'
 
-  use({
-    "kdheepak/lazygit.nvim",
+  use {
+    'nvim-tree/nvim-tree.lua',
     requires = {
-      "nvim-lua/plenary.nvim",
+      'nvim-tree/nvim-web-devicons'
+    }
+  }
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
+  }
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+  use { 'otavioschwanck/arrow.nvim' }
+  use 'mbbill/undotree'
+  use 'airblade/vim-rooter'
+
+  use 'nvim-lualine/lualine.nvim'
+  use {
+    'glepnir/galaxyline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+  use 'petertriho/nvim-scrollbar'
+  use 'catgoose/nvim-colorizer.lua'
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function() require('nvim-autopairs').setup {} end
+  }
+  use 'machakann/vim-sandwich'
+  use 'tpope/vim-commentary'
+
+  use 'lewis6991/gitsigns.nvim'
+  use {
+    'kdheepak/lazygit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
     },
-  })
-
-  use ({
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { }
-  })
-
+  }
+  use {
+    'folke/todo-comments.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('todo-comments').setup({})
+    end,
+  }
   use {
     'folke/trouble.nvim',
-    require = {
+    requires = {
       'nvim-tree/nvim-web-devicons'
     },
     cmd = 'Trouble',
@@ -104,58 +127,30 @@ return require('packer').startup(function(use)
     end
   }
 
-  use 'nvim-lualine/lualine.nvim'
-  use 'yuezk/vim-js'
-  use 'HerringtonDarkholme/yats.vim'
+  use 'mfussenegger/nvim-dap'
+  use 'puremourning/vimspector'
+  use 'hedyhli/outline.nvim'
+  use 'voldikss/vim-floaterm'
 
-  use {
-    "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  }
-
-  use (
-    'nvim-treesitter/nvim-treesitter',
-    { run = ':TSUpdate'}
-  )
-
-  use 'neovim/nvim-lspconfig'
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'saecki/crates.nvim'
   use 'MunifTanjim/prettier.nvim'
+
+  use {
+    'amitds1997/remote-nvim.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  }
+
+  use {
+    'nvzone/typr',
+    requires = { 'nvzone/volt' },
+    cmd = { 'Typr', 'TyprStats' },
+  }
+
   use { 'yorumicolors/yorumi.nvim', branch = 'dev' }
-  use { 'otavioschwanck/arrow.nvim'}
-  use 'mbbill/undotree'
-  use 'tpope/vim-commentary'
-
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'L3MON4D3/LuaSnip'},
-    }
-  }
-
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons'
-    }
-  }
-
-  use {
-    'glepnir/galaxyline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons'}
-  }
-
-  use 'lewis6991/gitsigns.nvim'
-  use 'petertriho/nvim-scrollbar'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

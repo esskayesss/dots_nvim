@@ -62,7 +62,8 @@ local function get_os_logo()
     ['^cygwin'] = '󰍲 ',
     ['bsd$'] = ' ',
   }
-  local sysname = string.lower(vim.loop.os_uname().sysname)
+  local uv = vim.uv or vim.loop
+  local sysname = string.lower(uv.os_uname().sysname)
   for pattern, logo in pairs(os_patterns) do
     if string.match(sysname, pattern) then
       return logo
@@ -144,6 +145,11 @@ insert_left {
     color_warn  = { fg = theme.syn.identifier },
     color_info  = { fg = theme.syn.type },
   },
+}
+
+insert_right {
+  require 'minuet.lualine',
+  display_on_idle = true,
 }
 
 insert_right {
