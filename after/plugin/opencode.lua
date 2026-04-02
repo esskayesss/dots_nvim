@@ -4,6 +4,13 @@ if not ok then
   return
 end
 
+vim.g.opencode_opts = {
+  provider = {
+    enabled = 'tmux',
+    tmux = {},
+  },
+}
+
 vim.o.autoread = true
 
 vim.keymap.set({ 'n', 'x' }, '<leader>oa', function()
@@ -29,3 +36,11 @@ end, { desc = 'Add range to opencode', expr = true })
 vim.keymap.set('n', '<leader>ol', function()
   return opencode.operator('@this ') .. '_'
 end, { desc = 'Add line to opencode', expr = true })
+
+vim.keymap.set('n', '<S-C-u>', function()
+  opencode.command('session.half.page.up')
+end, { desc = 'Scroll opencode up' })
+
+vim.keymap.set('n', '<S-C-d>', function()
+  opencode.command('session.half.page.down')
+end, { desc = 'Scroll opencode down' })

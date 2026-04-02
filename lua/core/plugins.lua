@@ -18,34 +18,21 @@ return require('packer').startup(function(use)
   use 'MunifTanjim/nui.nvim'
   use 'stevearc/dressing.nvim'
 
-  use {
-    'yetone/avante.nvim',
-    branch = 'main',
-    run = 'make',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      'MeanderingProgrammer/render-markdown.nvim',
-    },
-  }
   use 'MeanderingProgrammer/render-markdown.nvim'
   use 'HakonHarnes/img-clip.nvim'
-  use { 'nickjvandyke/opencode.nvim' }
-  use { 'folke/snacks.nvim' }
+  use {
+    'nickjvandyke/opencode.nvim',
+    requires = {
+      'folke/snacks.nvim',
+    },
+  }
   use 'milanglacier/minuet-ai.nvim'
 
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      { 'neovim/nvim-lspconfig' },
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'L3MON4D3/LuaSnip' },
-    }
   }
+
   use 'neovim/nvim-lspconfig'
   use 'nvimtools/none-ls.nvim'
   use 'lvimuser/lsp-inlayhints.nvim'
