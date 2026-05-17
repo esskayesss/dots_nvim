@@ -1,8 +1,12 @@
-require("core")
+-- Must be set BEFORE any plugin loads or mappings are defined.
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
--- disable netrw at the very start of your init.lua
+-- Disable netrw at the very start (lazy also blocks netrwPlugin in rtp).
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+require("core")
 
 
 -- Smart AutoRoot

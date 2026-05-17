@@ -17,9 +17,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- leader must be set before lazy.setup
-vim.g.mapleader = vim.g.mapleader or " "
-vim.g.maplocalleader = vim.g.maplocalleader or "\\"
+-- leader must be set before lazy.setup (handled in init.lua)
 
 require("lazy").setup({
   spec = {
