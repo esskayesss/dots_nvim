@@ -5,10 +5,7 @@ if not ok then
 end
 
 vim.g.opencode_opts = {
-  provider = {
-    enabled = 'tmux',
-    tmux = {},
-  },
+  server = {},
 }
 
 vim.o.autoread = true

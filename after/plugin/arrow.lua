@@ -6,6 +6,6 @@ require('arrow').setup({
   always_show_path = true,
 })
 
-vim.keymap.set("n", "H", require("arrow.persist").previous)
-vim.keymap.set("n", "L", require("arrow.persist").next)
-vim.keymap.set("n", "<C-s>", require("arrow.persist").toggle)
+vim.keymap.set("n", "[a", require("arrow.persist").previous, { desc = "Arrow: prev bookmark" })
+vim.keymap.set("n", "]a", require("arrow.persist").next,     { desc = "Arrow: next bookmark" })
+vim.keymap.set("n", "<leader>aa", require("arrow.persist").toggle, { desc = "Arrow: toggle bookmark" })

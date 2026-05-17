@@ -8,18 +8,32 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Your shared on_attach (keymaps, etc.)
 lsp_zero.on_attach(function(_, bufnr)
-  local opts = { buffer = bufnr, remap = false }
+  local opts = { buffer = bufnr, remap = false, silent = true }
+  local function m(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
+  end
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-  vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+  -- Navigation
+  m("n", "gd", vim.lsp.buf.definition,       "LSP: definition")
+  m("n", "gD", vim.lsp.buf.declaration,      "LSP: declaration")
+  m("n", "gi", vim.lsp.buf.implementation,   "LSP: implementation")
+  m("n", "gr", vim.lsp.buf.references,       "LSP: references")
+  m("n", "gy", vim.lsp.buf.type_definition,  "LSP: type definition")
+
+  -- Info
+  m("n", "K",         vim.lsp.buf.hover,           "LSP: hover")
+  m("i", "<C-h>",     vim.lsp.buf.signature_help,  "LSP: signature help")
+  m("n", "<leader>ws", vim.lsp.buf.workspace_symbol, "LSP: workspace symbols")
+
+  -- Code
+  m("n", "<leader>ca", vim.lsp.buf.code_action, "LSP: code action")
+  m("n", "<leader>rn", vim.lsp.buf.rename,      "LSP: rename")
+  m("n", "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, "LSP: format buffer")
+
+  -- Diagnostics  ([ = prev, ] = next  — vim convention)
+  m("n", "<leader>cd", vim.diagnostic.open_float, "Diagnostic: line float")
+  m("n", "[d",        vim.diagnostic.goto_prev,  "Diagnostic: prev")
+  m("n", "]d",        vim.diagnostic.goto_next,  "Diagnostic: next")
 end)
 
 -- Mason setup (unchanged – you can keep nice icons)

@@ -28,14 +28,16 @@ local mapping = {
       fallback()
     end
   end, { 'i', 's' }),
-  ['<M-l>'] = cmp.mapping.confirm({
-    behavior = cmp.ConfirmBehavior.Insert,
-    select = false,
-  }),
+  -- Accept keys. INTENTIONALLY NOT <CR> — keeping Enter free for newlines.
+  ['<M-l>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+  ['<C-y>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
   ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
   ['<C-f>'] = cmp.mapping.scroll_docs(4),
   ['<C-Space>'] = cmp.mapping.complete(),
   ['<C-e>'] = cmp.mapping.close(),
+  -- DO NOT bind <CR> to confirm — it must always insert a newline, even when
+  -- the completion menu is visible. Explicit fallback prevents any source or
+  -- plugin from silently hijacking Enter.
   ['<CR>'] = cmp.mapping(function(fallback)
     fallback()
   end, { 'i', 's' }),
